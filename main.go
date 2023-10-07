@@ -26,6 +26,7 @@ func main() {
 	*/
 
 	//algoritmos.LlamarQuickSort()
-	algoritmos.LlamarHeapSort()
+	//algoritmos.LlamarHeapSort()
+	algoritmos.LlamarBitonicSort()
 
 }
