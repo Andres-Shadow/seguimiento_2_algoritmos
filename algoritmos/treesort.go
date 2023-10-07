@@ -3,6 +3,7 @@ package algoritmos
 import (
 	"fmt"
 	"seg_2_algoritmos/utilidades"
+	"time"
 )
 
 // Estructura para representar un nodo en el árbol binario de búsqueda
@@ -46,8 +47,11 @@ func treeins(arr []int) *Node {
 }
 
 func LlamarTreeSort() {
+	startTime := time.Now()
 	var root *Node
 	arr := utilidades.RecuperarArreglo()
 	root = treeins(arr)
 	inorderRec(root)
+	elapsedTime := time.Since(startTime)
+	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

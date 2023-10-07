@@ -21,6 +21,9 @@ func main() {
 	case "4":
 		algoritmos.LlamarTreeSort()
 		break
+	case "5":
+		algoritmos.LlamarPigeonHoleSort()
+		break
 	}
 
 }
