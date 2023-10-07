@@ -18,6 +18,9 @@ func main() {
 	case "3":
 		algoritmos.LlamarSelectionSort()
 		break
+	case "4":
+		algoritmos.LlamarTreeSort()
+		break
 	}
 
 }
