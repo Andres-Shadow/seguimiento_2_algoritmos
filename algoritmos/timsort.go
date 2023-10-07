@@ -94,13 +94,6 @@ func timSort(arr []int, n int) {
 	}
 }
 
-func printArray(arr []int) {
-	for _, val := range arr {
-		fmt.Println(val, " ")
-	}
-	fmt.Println()
-}
-
 func LlamarTimSort() {
 
 	startTime := time.Now()
@@ -111,7 +104,7 @@ func LlamarTimSort() {
 	timSort(arr, n)
 
 	fmt.Println("Resultado")
-	printArray(arr)
-	elapsedTime := time.Since(startTime) 
+	utilidades.ImprimirArreglo(arr)
+	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

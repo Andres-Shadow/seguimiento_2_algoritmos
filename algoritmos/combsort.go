@@ -52,18 +52,11 @@ func combSort(arr []int) {
 	}
 }
 
-func imprimirArreglo(arr []int) {
-	fmt.Println("Arreglo ordenado:")
-	for i := 0; i < len(arr); i++ {
-		fmt.Println(arr[i], " ")
-	}
-}
-
 func LlamarCombSort() {
 	startTime := time.Now()
 	arr := utilidades.RecuperarArreglo()
 	combSort(arr)
-	imprimirArreglo(arr)
+	utilidades.ImprimirArreglo(arr)
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

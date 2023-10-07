@@ -15,6 +15,9 @@ func main() {
 	case "2":
 		algoritmos.LlamarCombSort()
 		break
+	case "3":
+		algoritmos.LlamarSelectionSort()
+		break
 	}
 
 }
