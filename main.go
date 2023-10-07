@@ -1,9 +1,7 @@
 package main
 
-import (
-	"seg_2_algoritmos/utilidades"
-)
+import "seg_2_algoritmos/algoritmos"
 
 func main() {
-	utilidades.RecuperarArreglo()
+	algoritmos.LlamarTimSort()
 }
