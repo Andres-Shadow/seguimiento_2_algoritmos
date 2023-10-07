@@ -6,6 +6,7 @@ import (
 )
 
 func main() {
+
 	opcion := os.Args[1]
 
 	switch opcion {
@@ -24,9 +25,10 @@ func main() {
 	case "5":
 		algoritmos.LlamarPigeonHoleSort()
 		break
-	case "6":
-		algoritmos.LlamarBucketSort()
-		break
 	}
+
+	//algoritmos.LlamarQuickSort()
+	//algoritmos.LlamarHeapSort()
+	//algoritmos.LlamarBitonicSort()
 
 }
