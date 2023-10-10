@@ -27,9 +27,20 @@ func selectionSort(arr []int) {
 	}
 }
 
-func LlamarSelectionSort() {
+func LlamarSelectionSort(tam int) {
 	startTime := time.Now()
-	arr := utilidades.RecuperarArreglo()
+	var arr []int
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArreglo("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArreglo("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArreglo("datos3.txt")
+		break
+	}
 	selectionSort(arr)
 	utilidades.ImprimirArreglo(arr)
 	elapsedTime := time.Since(startTime)

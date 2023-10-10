@@ -94,16 +94,26 @@ func timSort(arr []int, n int) {
 	}
 }
 
-func LlamarTimSort() {
+func LlamarTimSort(tam int) {
 
 	startTime := time.Now()
+	var arr []int
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArreglo("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArreglo("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArreglo("datos3.txt")
+		break
+	}
 
-	arr := utilidades.RecuperarArreglo()
 	n := len(arr)
 
 	timSort(arr, n)
 
-	fmt.Println("Resultado")
 	utilidades.ImprimirArreglo(arr)
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)

@@ -48,9 +48,21 @@ func bucketSort(arr []float64) {
 	}
 }
 
-func LlamarBucketSort() {
+func LlamarBucketSort(tam int) {
 	startTime := time.Now()
-	arr := utilidades.RecuperarArregloFlotante()
+	var arr []float64
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArregloFlotante("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArregloFlotante("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArregloFlotante("datos3.txt")
+		break
+	}
+
 	bucketSort(arr)
 	utilidades.ImprimirArregloFlotante(arr)
 	elapsedTime := time.Since(startTime)

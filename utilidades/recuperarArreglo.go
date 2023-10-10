@@ -1,12 +1,16 @@
 package utilidades
 
-func RecuperarArreglo() []int {
-	leido, _ := LeerArregloDesdeArchivo1("D:\\Goland projects\\seguimiento_2_algoritmos\\datos.txt")
+func RecuperarArreglo(nombre string) []int {
+	leido, _ := LeerArregloDesdeArchivo1(nombre)
 	return leido
 }
 
+func RecuperarArregloFlotante(nombre string) []float64 {
+	leido, _ := LeerArregloDesdeArchivo2(nombre)
+	return leido
+}
 
-func RecuperarArregloFlotante() []float64 {
-	leido, _ := LeerArregloDesdeArchivo2("./datos.txt")
+func RecuperarArregloGrande(nombre string) []int64 {
+	leido, _ := LeerArregloDesdeArchivo3(nombre)
 	return leido
 }

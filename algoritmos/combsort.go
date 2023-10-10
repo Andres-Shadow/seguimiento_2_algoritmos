@@ -52,9 +52,20 @@ func combSort(arr []int) {
 	}
 }
 
-func LlamarCombSort() {
+func LlamarCombSort(tam int) {
 	startTime := time.Now()
-	arr := utilidades.RecuperarArreglo()
+	var arr []int
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArreglo("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArreglo("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArreglo("datos3.txt")
+		break
+	}
 	combSort(arr)
 	utilidades.ImprimirArreglo(arr)
 	elapsedTime := time.Since(startTime)

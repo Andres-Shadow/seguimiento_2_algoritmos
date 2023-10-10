@@ -12,12 +12,12 @@ func GenerarArreglog() {
 	rand.Seed(time.Now().UnixNano())
 
 	// Generar un arreglo de 10,000,000 de números aleatorios
-	array := make([]int64, 1000)
+	array := make([]int64, 3000)
 	for i := 0; i < len(array); i++ {
 		array[i] = rand.Int63n(99999999999000) + 1000000000
 	}
 	// Guardar el arreglo en un archivo de texto
-	filename := "datos.txt"
+	filename := "datos3.txt"
 	err := guardarArregloEnArchivo(filename, array)
 	if err != nil {
 		fmt.Println("Error al guardar el arreglo:", err)
