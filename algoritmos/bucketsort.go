@@ -6,65 +6,77 @@ import (
 	"time"
 )
 
-func bucketSort(arr []float64) {
-	n := len(arr)
-	if n <= 0 {
+func bucketSort(arr []int) {
+	if len(arr) <= 1 {
 		return
 	}
 
-	// 1) Crear n buckets vacíos
-	buckets := make([][]float64, n)
-	for i := 0; i < n; i++ {
-		buckets[i] = []float64{}
-	}
-
-	// 2) Colocar los elementos del arreglo en diferentes buckets
-	for i := 0; i < n; i++ {
-		idx := int(arr[i] * float64(n))
-		buckets[idx] = append(buckets[idx], arr[i])
-	}
-
-	// 3) Ordenar los buckets individuales
-	for i := 0; i < n; i++ {
-		bucket := buckets[i]
-		for j := 1; j < len(bucket); j++ {
-			key := bucket[j]
-			k := j - 1
-			for k >= 0 && bucket[k] > key {
-				bucket[k+1] = bucket[k]
-				k--
-			}
-			bucket[k+1] = key
+	// Encontrar el máximo y mínimo valores en el arreglo para determinar el rango.
+	minVal, maxVal := arr[0], arr[0]
+	for _, val := range arr {
+		if val < minVal {
+			minVal = val
+		}
+		if val > maxVal {
+			maxVal = val
 		}
 	}
 
-	// 4) Concatenar todos los buckets en el arreglo original
+	// Crear buckets (cubos) basados en el rango de valores.
+	bucketSize := (maxVal-minVal)/len(arr) + 1
+	numBuckets := (maxVal-minVal)/bucketSize + 1
+	buckets := make([][]int, numBuckets)
+
+	// Colocar elementos en los buckets correspondientes.
+	for _, val := range arr {
+		index := (val - minVal) / bucketSize
+		buckets[index] = append(buckets[index], val)
+	}
+
+	// Ordenar cada bucket individualmente (puedes usar otro algoritmo de ordenamiento aquí).
+	for i := 0; i < numBuckets; i++ {
+		insertion(buckets[i])
+	}
+
+	// Concatenar los buckets ordenados para obtener el arreglo ordenado.
 	index := 0
-	for i := 0; i < n; i++ {
-		for j := 0; j < len(buckets[i]); j++ {
-			arr[index] = buckets[i][j]
+	for i := 0; i < numBuckets; i++ {
+		for _, val := range buckets[i] {
+			arr[index] = val
 			index++
 		}
 	}
 }
 
+func insertion(arr []int) {
+	for i := 1; i < len(arr); i++ {
+		key := arr[i]
+		j := i - 1
+		for j >= 0 && arr[j] > key {
+			arr[j+1] = arr[j]
+			j--
+		}
+		arr[j+1] = key
+	}
+}
+
 func LlamarBucketSort(tam int) {
 	startTime := time.Now()
-	var arr []float64
+	var arr []int
 	switch tam {
 	case 1:
-		arr = utilidades.RecuperarArregloFlotante("datos.txt")
+		arr = utilidades.RecuperarArreglo("datos.txt")
 		break
 	case 2:
-		arr = utilidades.RecuperarArregloFlotante("datos2.txt")
+		arr = utilidades.RecuperarArreglo("datos2.txt")
 		break
 	case 3:
-		arr = utilidades.RecuperarArregloFlotante("datos3.txt")
+		arr = utilidades.RecuperarArreglo("datos3.txt")
 		break
 	}
 
 	bucketSort(arr)
-	utilidades.ImprimirArregloFlotante(arr)
+	utilidades.ImprimirArreglo(arr)
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

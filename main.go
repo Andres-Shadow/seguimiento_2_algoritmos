@@ -3,20 +3,23 @@ package main
 import (
 	"fmt"
 	"os"
-	_ "os"
 	"seg_2_algoritmos/algoritmos"
-	_ "seg_2_algoritmos/algoritmos"
+	"seg_2_algoritmos/utilidades"
+	"strconv"
 )
 
 func main() {
 
 	opcion := os.Args[1]
-	var tam int
-	fmt.Println("1. primer tamaño")
-	fmt.Println("2. segundo tamaño")
-	fmt.Println("3. tercer tamaño")
-	fmt.Print("Seleccione el tamaño para el arreglo: ")
-	fmt.Scan(&tam)
+	tam, _ := strconv.Atoi(os.Args[2])
+	if len(os.Args) != 3 {
+		fmt.Println("1. primer tamaño")
+		fmt.Println("2. segundo tamaño")
+		fmt.Println("3. tercer tamaño")
+		fmt.Print("Seleccione el tamaño para el arreglo: ")
+		fmt.Scan(&tam)
+	}
+
 	switch opcion {
 	case "1":
 		algoritmos.LlamarTimSort(tam)
@@ -47,6 +50,8 @@ func main() {
 		break
 	case "10":
 		//algoritmos.LlamarPigeonHoleSort()
+	case "11":
+		utilidades.GenerarArreglog(tam)
 		break
 	}
 

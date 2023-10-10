@@ -7,27 +7,42 @@ import (
 	"time"
 )
 
-func GenerarArreglog() {
+func GenerarArreglog(tam int) {
+
+	var nombre string
+	var cantidad int
+	switch tam {
+	case 1:
+		nombre = "datos.txt"
+		cantidad = 10000
+		break
+	case 2:
+		nombre = "datos2.txt"
+		cantidad = 20000
+		break
+	case 3:
+		nombre = "datos3.txt"
+		cantidad = 30000
+	}
 	// Semilla para generar números aleatorios
 	rand.Seed(time.Now().UnixNano())
 
 	// Generar un arreglo de 10,000,000 de números aleatorios
-	array := make([]int64, 3000)
+	array := make([]int, cantidad)
 	for i := 0; i < len(array); i++ {
-		array[i] = rand.Int63n(99999999999000) + 1000000000
+		array[i] = rand.Intn(100000) + 1
 	}
 	// Guardar el arreglo en un archivo de texto
-	filename := "datos3.txt"
-	err := guardarArregloEnArchivo(filename, array)
+	err := guardarArregloEnArchivo(nombre, array)
 	if err != nil {
 		fmt.Println("Error al guardar el arreglo:", err)
 		return
 	}
-	fmt.Println("Arreglo guardado en", filename)
+	fmt.Println("Arreglo guardado en", nombre)
 
 }
 
-func guardarArregloEnArchivo(filename string, array []int64) error {
+func guardarArregloEnArchivo(filename string, array []int) error {
 	file, err := os.Create(filename)
 	if err != nil {
 		return err
