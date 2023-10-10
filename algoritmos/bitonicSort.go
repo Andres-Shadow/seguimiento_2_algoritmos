@@ -2,6 +2,7 @@ package algoritmos
 
 import (
 	"fmt"
+	"seg_2_algoritmos/utilidades"
 	"time"
 )
 
@@ -38,23 +39,27 @@ func (b *BitonicSort) Sort(a []int, N, up int) {
 	b.bitonicSort(a, 0, N, up)
 }
 
-func printArra(arr []int) {
-	for _, num := range arr {
-		fmt.Print(num, " ")
-	}
-	fmt.Println()
-}
-
-func LlamarBitonicSort() {
+func LlamarBitonicSort(tam int) {
 	startTime := time.Now()
 
-	arr := []int{3, 7, 4, 8, 6, 2, 1, 5}
+	var arr []int
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArreglo("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArreglo("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArreglo("datos3.txt")
+		break
+	}
+	
 	up := 1
 	var ob BitonicSort
 	ob.Sort(arr, len(arr), up)
 
-	fmt.Println("\nArreglo ordenado")
-	printArra(arr)
+	utilidades.ImprimirArreglo(arr)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)

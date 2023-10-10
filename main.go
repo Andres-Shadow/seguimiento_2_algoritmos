@@ -12,7 +12,7 @@ func main() {
 
 	opcion := os.Args[1]
 	tam, _ := strconv.Atoi(os.Args[2])
-	if len(os.Args) != 3 {
+	if len(os.Args) < 3 {
 		fmt.Println("1. primer tamaño")
 		fmt.Println("2. segundo tamaño")
 		fmt.Println("3. tercer tamaño")
@@ -40,17 +40,23 @@ func main() {
 		algoritmos.LlamarBucketSort(tam)
 		break
 	case "7":
-		//algoritmos.LlamarPigeonHoleSort()
+		algoritmos.LlamarQuickSort(tam)
 		break
 	case "8":
-		//algoritmos.LlamarPigeonHoleSort()
+		algoritmos.LlamarHeapSort(tam)
 		break
 	case "9":
-		//algoritmos.LlamarPigeonHoleSort()
+		algoritmos.LlamarBitonicSort(tam)
 		break
 	case "10":
-		//algoritmos.LlamarPigeonHoleSort()
+		//falta
+		break
 	case "11":
+		//falta
+		break
+	case "12":
+		//falta
+	case "x":
 		utilidades.GenerarArreglog(tam)
 		break
 	}

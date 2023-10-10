@@ -2,6 +2,7 @@ package algoritmos
 
 import (
 	"fmt"
+	"seg_2_algoritmos/utilidades"
 	"time"
 )
 
@@ -44,26 +45,27 @@ func (h *HeapSort) sort(arr []int) {
 	}
 }
 
-func printArray(arr []int) {
-	for _, num := range arr {
-		fmt.Print(num, " ")
-	}
-	fmt.Println()
-}
-
-func LlamarHeapSort() {
+func LlamarHeapSort(tam int) {
 	startTime := time.Now()
 
-	//arr := utilidades.RecuperarArreglo()
-	arr := []int{12, 11, 13, 5, 6, 7}
-	//N := len(arr)
+	var arr []int
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArreglo("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArreglo("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArreglo("datos3.txt")
+		break
+	}
 
 	// Function call
 	h := &HeapSort{}
 	h.sort(arr)
 
-	fmt.Println("Array ordenado :")
-	printArray(arr)
+	utilidades.ImprimirArreglo(arr)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)

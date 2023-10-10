@@ -2,6 +2,7 @@ package algoritmos
 
 import (
 	"fmt"
+	"seg_2_algoritmos/utilidades"
 	"time"
 )
 
@@ -36,25 +37,27 @@ func quickSort(arr []int, low, high int) {
 	}
 }
 
-func printArr(arr []int) {
-	for _, num := range arr {
-		fmt.Print(num, " ")
-	}
-	fmt.Println()
-}
-
-func LlamarQuickSort() {
+func LlamarQuickSort(tam int) {
 
 	startTime := time.Now()
-
-	//arr := utilidades.RecuperarArreglo()
-	arr := []int{2, 5, 8, 1, 92, 37}
+	var arr []int
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArreglo("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArreglo("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArreglo("datos3.txt")
+		break
+	}
 	N := len(arr)
 
 	quickSort(arr, 0, N-1)
 
 	fmt.Println("Sorted array:")
-	printArr(arr)
+	utilidades.ImprimirArreglo(arr)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
