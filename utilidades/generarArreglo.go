@@ -14,15 +14,15 @@ func GenerarArreglog(tam int) {
 	switch tam {
 	case 1:
 		nombre = "datos.txt"
-		cantidad = 10000
+		cantidad = 100000
 		break
 	case 2:
 		nombre = "datos2.txt"
-		cantidad = 20000
+		cantidad = 200000
 		break
 	case 3:
 		nombre = "datos3.txt"
-		cantidad = 30000
+		cantidad = 300000
 	}
 	// Semilla para generar números aleatorios
 	rand.Seed(time.Now().UnixNano())

@@ -76,7 +76,7 @@ func LlamarBucketSort(tam int) {
 	}
 
 	bucketSort(arr)
-	utilidades.ImprimirArreglo(arr)
+	//utilidades.ImprimirArreglo(arr)
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }
