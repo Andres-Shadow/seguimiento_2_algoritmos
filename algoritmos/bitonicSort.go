@@ -59,8 +59,6 @@ func LlamarBitonicSort(tam int) {
 	var ob BitonicSort
 	ob.Sort(arr, len(arr), up)
 
-	utilidades.ImprimirArreglo(arr)
-
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

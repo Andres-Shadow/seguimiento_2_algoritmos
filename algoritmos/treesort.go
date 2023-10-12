@@ -48,7 +48,7 @@ func treeins(arr []int) *Node {
 
 func LlamarTreeSort(tam int) {
 	startTime := time.Now()
-	var root *Node
+
 	var arr []int
 	switch tam {
 	case 1:
@@ -61,8 +61,8 @@ func LlamarTreeSort(tam int) {
 		arr = utilidades.RecuperarArreglo("datos3.txt")
 		break
 	}
-	root = treeins(arr)
-	inorderRec(root)
+	treeins(arr)
+	//inorderRec(root)
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

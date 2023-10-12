@@ -65,8 +65,6 @@ func LlamarHeapSort(tam int) {
 	h := &HeapSort{}
 	h.sort(arr)
 
-	utilidades.ImprimirArreglo(arr)
-
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

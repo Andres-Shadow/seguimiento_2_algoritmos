@@ -56,9 +56,6 @@ func LlamarQuickSort(tam int) {
 
 	quickSort(arr, 0, N-1)
 
-	fmt.Println("Sorted array:")
-	utilidades.ImprimirArreglo(arr)
-
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

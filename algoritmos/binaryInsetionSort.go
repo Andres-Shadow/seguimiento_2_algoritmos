@@ -2,6 +2,7 @@ package algoritmos
 
 import (
 	"fmt"
+	"seg_2_algoritmos/utilidades"
 	"time"
 )
 
@@ -32,16 +33,24 @@ func binaryInsertionSort(arr []int) {
 	}
 }
 
-func LlamarBinaryInsertionSort() {
+func LlamarBinaryInsertionSort(tam int) {
 
 	startTime := time.Now()
 
-	//arr := utilidades.RecuperarArreglo()
-	arr := []int{37, 23, 0, 17, 12, 72, 31, 46, 100, 88, 54, 32}
-	binaryInsertionSort(arr)
+	var arr []int
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArreglo("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArreglo("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArreglo("datos3.txt")
+		break
+	}
 
-	fmt.Println("Sorted array:")
-	fmt.Println(arr)
+	binaryInsertionSort(arr)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)

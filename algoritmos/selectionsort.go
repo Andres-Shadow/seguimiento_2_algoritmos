@@ -42,7 +42,6 @@ func LlamarSelectionSort(tam int) {
 		break
 	}
 	selectionSort(arr)
-	utilidades.ImprimirArreglo(arr)
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 

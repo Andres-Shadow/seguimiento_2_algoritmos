@@ -2,6 +2,7 @@ package algoritmos
 
 import (
 	"fmt"
+	"seg_2_algoritmos/utilidades"
 	"time"
 )
 
@@ -47,20 +48,23 @@ func radixSort(arr []int) {
 	}
 }
 
-func printAr(arr []int) {
-	for _, num := range arr {
-		fmt.Print(num, " ")
-	}
-	fmt.Println()
-}
-
-func LlamarRadixSort() {
+func LlamarRadixSort(tam int) {
 	startTime := time.Now()
 
-	//arr := utilidades.RecuperarArreglo()
-	arr := []int{170, 45, 75, 90, 802, 24, 2, 66, 22, 1, 55}
+	var arr []int
+	switch tam {
+	case 1:
+		arr = utilidades.RecuperarArreglo("datos.txt")
+		break
+	case 2:
+		arr = utilidades.RecuperarArreglo("datos2.txt")
+		break
+	case 3:
+		arr = utilidades.RecuperarArreglo("datos3.txt")
+		break
+	}
+
 	radixSort(arr)
-	printAr(arr)
 
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)

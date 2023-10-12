@@ -61,7 +61,6 @@ func LlamarPigeonHoleSort(tam int) {
 
 	// Llamar al algoritmo de ordenamiento pigeonhole
 	pigeonholeSort(arr)
-	utilidades.ImprimirArreglo2(arr)
 	elapsedTime := time.Since(startTime)
 	fmt.Println("Tiempo de ejecución:", elapsedTime)
 }

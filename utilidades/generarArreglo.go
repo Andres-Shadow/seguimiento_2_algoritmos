@@ -30,7 +30,7 @@ func GenerarArreglog(tam int) {
 	// Generar un arreglo de 10,000,000 de números aleatorios
 	array := make([]int, cantidad)
 	for i := 0; i < len(array); i++ {
-		array[i] = rand.Intn(100000) + 1
+		array[i] = rand.Intn(1000000) + 1
 	}
 	// Guardar el arreglo en un archivo de texto
 	err := guardarArregloEnArchivo(nombre, array)
